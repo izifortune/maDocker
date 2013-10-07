@@ -6,7 +6,5 @@
     "node_modules",
     "components"
   ],
-  "dependencies": {
-    "bootstrap": "~3.0.0"
-  }
+  "dependencies": {}
 }
