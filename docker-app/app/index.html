@@ -68,7 +68,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container app-container">
       <!-- Example row of columns -->
       <div class="row">
         <div class="col-lg-4">
@@ -112,6 +112,7 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
+        <script src="bower_components/marionette/lib/backbone.marionette.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
@@ -133,7 +134,11 @@
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/templates.js"></script>
+        <script src="scripts/models/container.js"></script>
+        <script src="scripts/collections/container.js"></script>
         <script src="scripts/routes/mainRouter.js"></script>
+        <script src="scripts/views/dockerpsItem.js"></script>
+        <script src="scripts/views/dockerps.js"></script>
         <!-- endbuild -->
 </body>
 </html>

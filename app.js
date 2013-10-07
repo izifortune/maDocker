@@ -24,6 +24,13 @@ app.configure(function(){
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
   app.locals.basedir = path.join(__dirname, 'public');
+  //Cross Domain Allow
+  app.all('*', function(req, res, next) {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+      res.header('Access-Control-Allow-Headers', 'Content-Type');
+      next();
+  });
 });
 
 app.configure('development', function(){
@@ -38,3 +45,49 @@ app.get('/dockerimages', dockerimages.list);
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+//Stoppa un container
+app.delete('/dockerps/:id', function(req, res) {
+    var sys = require('sys')
+    var exec = require('child_process').exec;
+    var child;
+
+    var id = req.params.id;
+  // executes `pwd`
+    child = exec("sudo docker stop " + id, function (error, stdout, stderr) {
+        //TODO Farla bloccante
+        if (error !== null) {
+            console.log('exec error: ' + error);
+            res.statusCode = 404;
+            return res.send('Error 404: No quote found');
+        }
+    });
+
+    res.json(true);
+});
+
+//TODO Lanciare un immagine
+app.post('/dockerimages', function(req, res) {
+
+    var sys = require('sys')
+    var exec = require('child_process').exec;
+    var child;
+
+      //if(!req.body.hasOwnProperty('author') ||
+         //!req.body.hasOwnProperty('text')) {
+        //res.statusCode = 400;
+        //return res.send('Error 400: Post syntax incorrect.');
+      //}
+  // executes `pwd`
+    child = exec("sudo docker run -d ", function (error, stdout, stderr) {
+        //TODO Farla bloccante
+        if (error !== null) {
+            console.log('exec error: ' + error);
+            res.statusCode = 404;
+            return res.send('Error 404: No quote found');
+        }
+    });
+
+    res.json(true);
+});
+

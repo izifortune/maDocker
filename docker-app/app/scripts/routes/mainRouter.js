@@ -13,7 +13,12 @@ dockerApp.Routers = dockerApp.Routers || {};
         },
 
         dockerps: function () {
-            console.log('dockerps');
+            console.log(dockerApp);
+            var list = new dockerApp.Collections.ContainerCollection();
+            var dpsView = new dockerApp.Views.DockerpsView({
+                collection: list,
+            });
+            $('.app-container').html(dpsView.render().el);
         },
 
         dockerImages: function () {
