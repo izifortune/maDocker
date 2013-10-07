@@ -63,7 +63,10 @@ app.delete('/dockerps/:id', function(req, res) {
         }
     });
 
-    res.json(true);
+    child.on('exit', function(code) {
+        console.log("EXXXIT");
+        res.json(true);
+    })
 });
 
 //TODO Lanciare un immagine
@@ -88,6 +91,8 @@ app.post('/dockerimages', function(req, res) {
         }
     });
 
-    res.json(true);
+    child.on('exit', function(code) {
+        res.json(true);
+    })
 });
 

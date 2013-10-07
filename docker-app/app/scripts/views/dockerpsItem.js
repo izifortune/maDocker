@@ -16,7 +16,9 @@ dockerApp.Views = dockerApp.Views || {};
         },
 
         stopContainer: function () {
-            this.model.destroy();
+            this.model.destroy({wait: true});
+            this.$el.addClass('danger');
+            this.$('.controls').text("Stopping...");
         }
 
     });
