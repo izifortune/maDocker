@@ -40,7 +40,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/dockerps', dockerps.list);
-app.get('/dockerimages', dockerimages.list);
+app.get('/dockerimages/list', dockerimages.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

@@ -22,7 +22,11 @@ dockerApp.Routers = dockerApp.Routers || {};
         },
 
         dockerImages: function () {
-            console.log('dockerImages');
+            var list = new dockerApp.Collections.ImagesCollection();
+            var imageView = new dockerApp.Views.ImageView({
+                collection: list,
+            });
+            $('.app-container').html(imageView.render().el);
         }
     });
 

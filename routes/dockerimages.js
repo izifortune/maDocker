@@ -21,7 +21,7 @@ exports.list = function(req, res){
           }
           console.log(splitted);
           ps.push({
-              respository: splitted[0],
+              repository: splitted[0],
               tag: splitted[1],
               id: splitted[2]
           });
