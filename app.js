@@ -75,6 +75,7 @@ app.post('/dockerimages', function(req, res) {
     var sys = require('sys')
     var exec = require('child_process').exec;
     var child;
+    console.log(req.body);
 
       //if(!req.body.hasOwnProperty('author') ||
          //!req.body.hasOwnProperty('text')) {
@@ -82,7 +83,7 @@ app.post('/dockerimages', function(req, res) {
         //return res.send('Error 400: Post syntax incorrect.');
       //}
   // executes `pwd`
-    child = exec("sudo docker run -d ", function (error, stdout, stderr) {
+    child = exec("sudo docker run -d " + req.body.id, function (error, stdout, stderr) {
         //TODO Farla bloccante
         if (error !== null) {
             console.log('exec error: ' + error);
