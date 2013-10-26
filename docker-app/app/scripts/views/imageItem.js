@@ -20,18 +20,23 @@ dockerApp.Views = dockerApp.Views || {};
         },
 
         startImage: function () {
+            var self = this;
             //this.model.destroy({wait: true});
             //url: 'http://localhost:3000/dockerimages/list/'
-            console.log(this.model);
+            this.$el.addClass('success');
+            this.$('.controls').text("Starting...");
             $.ajax({
                 type: "POST",
                 url: "http://localhost:3000/dockerimages",
                 dataType: "json",
                 data: {id: this.model.get('repository')},
+                success: function(data) {
+                    if (data) {
+                        self.$el.removeClass('success');
+                        this.$('.controls').text("Start");
+                    }
+                }
             });
-            this.$el.addClass('success');
-            this.$('.controls').text("Starting...");
-            console.log('start');
         }
 
     });
