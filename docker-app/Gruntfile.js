@@ -240,6 +240,13 @@ module.exports = function (grunt) {
                 },
                 {
                     expand: true,
+                    cwd: '<%= yeoman.app %>/bower_components/font-awesome/fonts',
+                    src: ['*'],
+                    dest: '<%= yeoman.dist %>/fonts',
+                    filter: 'isFile'
+                }, // includes files in path
+                {
+                    expand: true,
                     cwd: '<%= yeoman.app %>/bower_components/sass-bootstrap/font',
                     src: ['*'],
                     dest: '<%= yeoman.dist %>/font',
@@ -275,6 +282,19 @@ module.exports = function (grunt) {
         }
     });
 
+    grunt.registerTask('copyCSS', function() {
+        grunt.file.copy('app/bower_components/font-awesome/fonts/FontAwesome.otf',
+                        '.tmp/fonts/FontAwesome.otf');
+        grunt.file.copy('app/bower_components/font-awesome/fonts/fontawesome-webfont.eot',
+                        '.tmp/fonts/fontawesome-webfont.eot');
+        grunt.file.copy('app/bower_components/font-awesome/fonts/fontawesome-webfont.svg',
+                        '.tmp/fonts/fontawesome-webfont.svg');
+        grunt.file.copy('app/bower_components/font-awesome/fonts/fontawesome-webfont.ttf',
+                        '.tmp/fonts/fontawesome-webfont.ttf');
+        grunt.file.copy('app/bower_components/font-awesome/fonts/fontawesome-webfont.woff',
+                        '.tmp/fonts/fontawesome-webfont.woff');
+    });
+
     grunt.registerTask('createDefaultTemplate', function () {
         grunt.file.write('.tmp/scripts/templates.js', 'this.JST = this.JST || {};');
     });
@@ -288,6 +308,7 @@ module.exports = function (grunt) {
                 'coffee',
                 'createDefaultTemplate',
                 'jst',
+                'copyCSS',
                 'compass:server',
                 'connect:test:keepalive'
             ]);
@@ -298,6 +319,7 @@ module.exports = function (grunt) {
             'coffee:dist',
             'createDefaultTemplate',
             'jst',
+            'copyCSS',
             'compass:server',
             'connect:livereload',
             'open',

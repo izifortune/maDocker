@@ -7,7 +7,8 @@
     "underscore": "~1.4.3",
     "backbone": "~1.0.0",
     "modernizr": "~2.6.2",
-    "marionette": "~1.1.0"
+    "marionette": "~1.1.0",
+    "font-awesome": "~4.0.1"
   },
   "devDependencies": {}
 }

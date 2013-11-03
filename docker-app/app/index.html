@@ -1,90 +1,407 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-        <!-- Custom styles for this template -->
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+    <title>maDocker</title>
+
+    <!-- Bootstrap core CSS -->
+    <!--<link href="css/bootstrap.css" rel="stylesheet">-->
+
+    <!-- Add custom CSS here -->
+    <!--<link href="css/sb-admin.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">-->
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+
+    <!-- Place favfa fa.ico and apple-touch-fa fa.png in the root directory -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="fa fa-bar"></span>
+            <span class="fa fa-bar"></span>
+            <span class="fa fa-bar"></span>
           </button>
-          <a class="navbar-brand" href="">MaDocker</a>
+          <a class="navbar-brand" href="">maDocker</a>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Contact</a></li>
-            <li class="dropdown">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav side-nav" id="mainnav">
+            <li class="active"><a href="/#"><i class="fa  fa-dashboard fa-fw"></i> Dashboard</a></li>
+            <li><a href="#dockerps"><i class="fa fa-tasks fa-fw"></i>Running Containers</a></li>
+            <li><a href="#dockerimages"><i class="fa fa-table fa-fw"></i>Image List</a></li>
+            <!--<li class="dropdown">-->
+              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-collapse"></i> Dropdown <b class="caret"></b></a>-->
+              <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">Dropdown Item</a></li>-->
+                <!--<li><a href="#">Another Item</a></li>-->
+                <!--<li><a href="#">Third Item</a></li>-->
+                <!--<li><a href="#">Last Item</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right navbar-user">
+            <li class="dropdown messages-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">7</span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="">Action</a></li>
-                <li><a href="">Another action</a></li>
-                <li><a href="">Something else here</a></li>
+                <li class="dropdown-header">7 New Messages</li>
+                <li class="message-preview">
+                  <a href="#">
+                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                    <span class="name">John Smith:</span>
+                    <span class="message">Hey there, I wanted to ask you something...</span>
+                    <span class="time"><i class="fa fa-time"></i> 4:34 PM</span>
+                  </a>
+                </li>
                 <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="">Separated link</a></li>
-                <li><a href="">One more separated link</a></li>
+                <li class="message-preview">
+                  <a href="#">
+                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                    <span class="name">John Smith:</span>
+                    <span class="message">Hey there, I wanted to ask you something...</span>
+                    <span class="time"><i class="fa fa-time"></i> 4:34 PM</span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li class="message-preview">
+                  <a href="#">
+                    <span class="avatar"><img src="http://placehold.it/50x50"></span>
+                    <span class="name">John Smith:</span>
+                    <span class="message">Hey there, I wanted to ask you something...</span>
+                    <span class="time"><i class="fa fa-time"></i> 4:34 PM</span>
+                  </a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="#">View Inbox <span class="badge">7</span></a></li>
+              </ul>
+            </li>
+            <li class="dropdown alerts-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-alt"></i> Alerts <span class="badge">3</span> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Default <span class="label label-default">Default</span></a></li>
+                <li><a href="#">Primary <span class="label label-primary">Primary</span></a></li>
+                <li><a href="#">Success <span class="label label-success">Success</span></a></li>
+                <li><a href="#">Info <span class="label label-info">Info</span></a></li>
+                <li><a href="#">Warning <span class="label label-warning">Warning</span></a></li>
+                <li><a href="#">Danger <span class="label label-danger">Danger</span></a></li>
+                <li class="divider"></li>
+                <li><a href="#">View All</a></li>
+              </ul>
+            </li>
+            <li class="dropdown user-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
               </ul>
             </li>
           </ul>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
+        </div><!-- /.navbar-collapse -->
+      </nav>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Your Personal Docker Manager!</h1>
-        <p>Just provinding a useful interface for docker cli</p>
-        <p><a class="btn btn-primary btn-lg">Learn more »</a></p>
-      </div>
-    </div>
+      <div id="page-wrapper" class="app-container">
 
-    <div class="container app-container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-lg-4">
-          <h2>PS</h2>
-          <p>Control your docker containers</p>
-          <p><a class="btn btn-default" href="/#dockerps">View details »</a></p>
+        <!--
+
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-comments fa fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">456</p>
+                    <p class="announcement-text">New Mentions!</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      View Mentions
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-circle-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-check fa fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">12</p>
+                    <p class="announcement-text">To-Do Items</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Complete Tasks
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-circle-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel panel-danger">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-tasks fa fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">18</p>
+                    <p class="announcement-text">Crawl Errors</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Fix Issues
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-circle-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="panel panel-success">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <i class="fa fa-comments fa fa-5x"></i>
+                  </div>
+                  <div class="col-xs-6 text-right">
+                    <p class="announcement-heading">56</p>
+                    <p class="announcement-text">New Orders!</p>
+                  </div>
+                </div>
+              </div>
+              <a href="#">
+                <div class="panel-footer announcement-bottom">
+                  <div class="row">
+                    <div class="col-xs-6">
+                      Complete Orders
+                    </div>
+                    <div class="col-xs-6 text-right">
+                      <i class="fa fa-circle-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4">
-          <h2>Images</h2>
-          <p>List your saved images</p>
-          <p><a class="btn btn-default" href="/#dockerimages">View details »</a></p>
-       </div>
-        <div class="col-lg-4">
-          <h2>Run/Stop</h2>
-          <p>Run Images and stop Container all from GUI</p>
-          <p><a class="btn btn-default" href="#">View details »</a></p>
-        </div>
-      </div>
 
-      <hr>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-bar-chart"></i> Traffic Statistics: October 1, 2013 - October 31, 2013</h3>
+              </div>
+              <div class="panel-body">
+                <div id="morris-chart-area"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> Traffic Sources: October 1, 2013 - October 31, 2013</h3>
+              </div>
+              <div class="panel-body">
+                <div id="morris-chart-donut"></div>
+                <div class="text-right">
+                  <a href="#">View Details <i class="fa fa-circle-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-time"></i> Recent Activity</h3>
+              </div>
+              <div class="panel-body">
+                <div class="list-group">
+                  <a href="#" class="list-group-item">
+                    <span class="badge">just now</span>
+                    <i class="fa fa-calendar"></i> Calendar updated
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">4 minutes ago</span>
+                    <i class="fa fa-comment-alt"></i> Commented on a post
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">23 minutes ago</span>
+                    <i class="fa fa-truck"></i> Order 392 shipped
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">46 minutes ago</span>
+                    <i class="fa fa-money"></i> Invoice 653 has been paid
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">1 hour ago</span>
+                    <i class="fa fa-user"></i> A new user has been added
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">2 hours ago</span>
+                    <i class="fa fa-check"></i> Completed task: "pick up dry cleaning"
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">yesterday</span>
+                    <i class="fa fa-globe"></i> Saved the world
+                  </a>
+                  <a href="#" class="list-group-item">
+                    <span class="badge">two days ago</span>
+                    <i class="fa fa-check"></i> Completed task: "fix error on sales page"
+                  </a>
+                </div>
+                <div class="text-right">
+                  <a href="#">View All Activity <i class="fa fa-circle-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-money"></i> Recent Transactions</h3>
+              </div>
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover table-striped tablesorter">
+                    <thead>
+                      <tr>
+                        <th>Order # <i class="fa fa-sort"></i></th>
+                        <th>Order Date <i class="fa fa-sort"></i></th>
+                        <th>Order Time <i class="fa fa-sort"></i></th>
+                        <th>Amount (USD) <i class="fa fa-sort"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>3326</td>
+                        <td>10/21/2013</td>
+                        <td>3:29 PM</td>
+                        <td>$321.33</td>
+                      </tr>
+                      <tr>
+                        <td>3325</td>
+                        <td>10/21/2013</td>
+                        <td>3:20 PM</td>
+                        <td>$234.34</td>
+                      </tr>
+                      <tr>
+                        <td>3324</td>
+                        <td>10/21/2013</td>
+                        <td>3:03 PM</td>
+                        <td>$724.17</td>
+                      </tr>
+                      <tr>
+                        <td>3323</td>
+                        <td>10/21/2013</td>
+                        <td>3:00 PM</td>
+                        <td>$23.71</td>
+                      </tr>
+                      <tr>
+                        <td>3322</td>
+                        <td>10/21/2013</td>
+                        <td>2:49 PM</td>
+                        <td>$8345.23</td>
+                      </tr>
+                      <tr>
+                        <td>3321</td>
+                        <td>10/21/2013</td>
+                        <td>2:23 PM</td>
+                        <td>$245.12</td>
+                      </tr>
+                      <tr>
+                        <td>3320</td>
+                        <td>10/21/2013</td>
+                        <td>2:15 PM</td>
+                        <td>$5663.54</td>
+                      </tr>
+                      <tr>
+                        <td>3319</td>
+                        <td>10/21/2013</td>
+                        <td>2:13 PM</td>
+                        <td>$943.45</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="text-right">
+                  <a href="#">View All Transactions <i class="fa fa-circle-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+
+      </div><!-- /#page-wrapper -->
+
+    </div><!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <!--<script src="js/bootstrap.js"></script>-->
+    <!-- Page Specific Plugins -->
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>-->
+    <!--<script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>-->
+    <!--<script src="js/morris/chart-data-morris.js"></script>-->
+    <!--<script src="js/tablesorter/jquery.tablesorter.js"></script>-->
+    <!--<script src="js/tablesorter/tables.js"></script>-->
 
       <footer>
         <p>© Fabrizio Fortunato 2013</p>
       </footer>
-    </div> <!-- /container -->
 
 
         <!--[if lt IE 7]>
@@ -135,6 +452,7 @@
         <script src="scripts/views/dockerps.js"></script>
         <script src="scripts/views/imageItem.js"></script>
         <script src="scripts/views/image.js"></script>
+        <script src="scripts/views/homeView.js"></script>
         <!-- endbuild -->
-</body>
+  </body>
 </html>

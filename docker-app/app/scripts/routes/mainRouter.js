@@ -10,6 +10,13 @@ dockerApp.Routers = dockerApp.Routers || {};
         routes: {
             "dockerps": "dockerps",
             "dockerimages": "dockerImages",
+            "": "dockerHome",
+        },
+
+        dockerHome: function() {
+            console.log('dockerhome');
+            var homeView = new dockerApp.Views.HomeView();
+            $('.app-container').html(homeView.render().el);
         },
 
         dockerps: function () {
